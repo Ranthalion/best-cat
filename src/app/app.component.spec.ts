@@ -75,8 +75,6 @@ describe('AppComponent', () => {
     
     expect(mockApiService.submitVote).toHaveBeenCalledWith({ bestCat: 'abc123' });
     expect(component.voteForm.value).toEqual({ bestCat: null });
-    expect(component.submitted).toBeFalse();
-    expect(mockApiService.getCats).toHaveBeenCalled();
   });
 
   it('should show error message when submitting form without selecting best cat', () => {

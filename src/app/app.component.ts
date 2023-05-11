@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
 
   loading: boolean = true;
   submitted: boolean = false;
+  errorMessage: string = '';
 
   voteForm = this.formBuilder.group({
     bestCat: ['', Validators.required]
@@ -41,7 +42,9 @@ export class AppComponent implements OnInit{
         this.loading = false;
       },
       error: (error) => {
-        console.error('Failed to load cats:', error);
+        const msg = 'Failed to load cats';
+        console.error(msg, error);
+        this.showError(msg);
       }
     });
   }
@@ -52,7 +55,9 @@ export class AppComponent implements OnInit{
         this.voteCount = response.voteCount;
       },
       error: (error) => {
-        console.error('Failed to load vote count:', error);
+        const msg = 'Failed to load vote count';
+        console.error(msg, error);
+        this.showError(msg);
       }
     });
   }
@@ -68,11 +73,23 @@ export class AppComponent implements OnInit{
       next: (response) => {
         this.voteForm.reset();
         this.loadCats();
+        this.loadVoteCount();
       },
       error: (error) => {
-        console.error('Failed to load cats:', error);
+        const msg = 'Failed to submit vote';
+        console.error(msg, error);
+        this.showError(msg);
       }
     });
+  }
+
+  showError(message: string, durationMillis: number = 3000) {
+    this.errorMessage = message;
+    if (durationMillis) {
+      setTimeout(() => {
+        this.errorMessage = '';
+      }, durationMillis);
+    }
   }
 
 }

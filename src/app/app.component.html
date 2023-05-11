@@ -26,7 +26,6 @@
       </div>
 
       <button type="submit" 
-        [disabled]="voteForm.invalid"
         class="p-4 mt-4 bg-white enabled:hover:bg-gray-100 disabled:bg-gray-200 disabled:text-gray-400 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full">
         VOTE
       </button>
@@ -34,7 +33,10 @@
   </div>
 
   <div class="py-4">
-    You have voted for {{voteCount}} cats!
+    You have voted for {{voteCount}} {{voteCount !== 1 ? 'cats': 'cat'}}!
   </div>
   
+  <div *ngIf="errorMessage" class="p-2 w-96 bg-rose-300 text-center rounded-lg cursor-pointer" role="alert" (click)="errorMessage=''">
+    {{errorMessage}}
+  </div>
 </main>
