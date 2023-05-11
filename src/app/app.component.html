@@ -1,0 +1,40 @@
+<main class="flex min-h-screen flex-col items-center p-12">
+
+  <h1 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">
+    Who is the best cat?
+  </h1>
+
+  <div *ngIf="!loading">
+    <form [formGroup]="voteForm" (ngSubmit)="submitVote()">
+      <div>
+        <input class="sr-only peer/1" type="radio" id="cat1" name="bestCat" [value]="cat1?.id" formControlName="bestCat"/>
+        <input class="sr-only peer/2" type="radio" id="cat2" name="bestCat" [value]="cat2?.id" formControlName="bestCat"/> 
+        <label for="cat1" 
+          [ngStyle]="{ 'background-image': 'url(' + cat1.url + ')' }" 
+          class="inline-block peer-checked/1:ring-cyan-600 peer-checked/1:ring-8 peer-checked/2:opacity-75 h-96 w-96 rounded-l-lg bg-cover cursor-pointer"
+          >
+        </label>
+        <label for="cat2" 
+          [ngStyle]="{ 'background-image': 'url(' + cat2.url + ')' }" 
+          class="inline-block peer-checked/2:ring-cyan-600 peer-checked/2:ring-8 peer-checked/1:opacity-75 h-96 w-96 rounded-r-lg bg-cover cursor-pointer"
+          >          
+        </label>
+      </div>
+
+      <div *ngIf="submitted && voteForm.controls.bestCat.hasError('required')" class="text-red-500 mt-2">
+        Please select the best cat.
+      </div>
+
+      <button type="submit" 
+        [disabled]="voteForm.invalid"
+        class="p-4 mt-4 bg-white enabled:hover:bg-gray-100 disabled:bg-gray-200 disabled:text-gray-400 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full">
+        VOTE
+      </button>
+    </form>
+  </div>
+
+  <div class="py-4">
+    You have voted for {{voteCount}} cats!
+  </div>
+  
+</main>
