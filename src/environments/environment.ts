@@ -1,4 +1,4 @@
 export const environment = {
-  NAME: 'Prodution',
-  API_BASE: 'https://my.prodgateway.com/api'
+  NAME: 'Production',
+  API_BASE: 'https://localhost:5600/api'
 }

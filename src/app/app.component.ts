@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
 
   constructor(
     private title: Title,
-    private http: HttpClient, 
+    private apiService: ApiService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit{
   }
 
   loadCats(): void {
-    this.http.get<any>('https://api.thecatapi.com/v1/images/search?limit=2').subscribe({
+    this.apiService.getCats(2).subscribe({
       next: (response) => {
         this.cat1 = response[0];
         this.cat2 = response[1];
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit{
   }
 
   loadVoteCount(): void {
-    this.http.get<any>('/user/vote-count').subscribe({
+    this.apiService.getVoteCount().subscribe({
       next: (response) => {
         this.voteCount = response.voteCount;
       },
@@ -64,7 +64,7 @@ export class AppComponent implements OnInit{
     }
     this.submitted = false;
   
-    this.http.post<any>('/user/vote-count', this.voteForm.value).subscribe({
+    this.apiService.submitVote(this.voteForm.value).subscribe({
       next: (response) => {
         this.voteForm.reset();
         this.loadCats();
