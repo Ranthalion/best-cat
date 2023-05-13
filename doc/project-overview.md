@@ -2,8 +2,8 @@
 
 Choose the best cat!  
 
-TODO: Show an image of the app
-TODO: Link to a running sample of the app (where to host)
+TODO: Show an image of the app  
+[Demo App](https://ranthalion.github.io/best-cat/)
 
 TODO: Outline what we are going to do
 1. Take a look at the sample app
