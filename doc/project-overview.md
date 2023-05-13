@@ -3,7 +3,7 @@
 Choose the best cat!  
 
 TODO: Show an image of the app  
-<a href="https://ranthalion.github.io/best-cat/" target="_blank">Demo App</a>
+[Demo App](https://ranthalion.github.io/best-cat/)
 
 TODO: Outline what we are going to do
 1. Take a look at the sample app
