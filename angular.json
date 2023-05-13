@@ -34,6 +34,9 @@
             "scripts": []
           },
           "configurations": {
+            "github-pages": {
+              "baseHref": "https://ranthalion.github.io/best-cat/"
+            },
             "production": {
               "budgets": [
                 {
