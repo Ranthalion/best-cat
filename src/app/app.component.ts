@@ -71,6 +71,8 @@ export class AppComponent implements OnInit{
   
     this.apiService.submitVote(this.voteForm.value).subscribe({
       next: (response) => {
+        //TODO: Get something from submit vote
+        
         this.voteForm.reset();
         this.loadCats();
         this.loadVoteCount();

@@ -5,7 +5,7 @@
 npm install msw --save-dev
 ```
 
-### Install types for events
+### Install types for events (if needed)
 ```
 npm install @types/events --save-dev 
 ```
@@ -56,11 +56,12 @@ import { worker } from "src/mocks/browser";
 
 worker.start();
 ```
+
 ### Verify that it's working
 
 ### Implement vote-count route in handlers.ts
 ```
-  rest.post('/vote-count', (req, res, ctx) => {
+  rest.get('/vote-count', (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
@@ -69,8 +70,14 @@ worker.start();
     )
   }),
 
+  rest.post('/vote', (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        id: 'abc123',
+        agreeCount: 20,
+      })
+    )
+  }),
+
 ```
-
-
-  // Handles a GET /user request
-  rest.get('/vote', null),
