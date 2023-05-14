@@ -59,6 +59,8 @@ worker.start();
 
 ### Verify that it's working
 
+Run the app and view the console output.  [MSW] Mocking enabled should be logged in the console. 
+
 ### Implement vote-count route in handlers.ts
 ```
   rest.get('/vote-count', (req, res, ctx) => {
@@ -81,3 +83,12 @@ worker.start();
   }),
 
 ```
+
+### Verify new functionality
+The app should should accept votes and load new cats.
+
+### Read the request
+
+
+
+[Next Page: Advanced Implementation Steps](advanced-implementation-steps.md)

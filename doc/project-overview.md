@@ -13,4 +13,4 @@ TODO: Outline what we are going to do
 1. Use mock service worker in e2e tests
 1. Summary or Recap with resources?
 
-[Next Page: Implementation Steps](implementation-steps.md)
+  [Next Page: Implementation Steps](implementation-steps.md)
