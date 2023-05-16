@@ -28,3 +28,24 @@ test('App should submit vote successfully', async ({ page }) => {
 
   await expect(page.getByText('You have voted for 1 cat!')).toBeVisible();
 });
+
+
+test('App should show error message when vote fails', async ({ page }) => {
+
+  await page.goto('/');
+  await page.waitForSelector('h1');
+
+  await page.evaluate(() => { 
+    const { msw } = window 
+   
+    msw.worker.use( 
+      msw.rest.post('/vote', async (req, res, ctx) => { 
+        return res(ctx.status(500)); 
+      })
+    );  
+  });
+
+  await page.locator('label').first().click();
+  await page.click('button[type="submit"]');
+
+});
