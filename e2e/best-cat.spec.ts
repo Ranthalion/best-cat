@@ -31,10 +31,10 @@ test('App should submit vote successfully', async ({ page }) => {
 
 
 test('App should show error message when vote fails', async ({ page }) => {
-
   await page.goto('/');
   await page.waitForSelector('h1');
 
+  //TODO: Somehow cause the vote route to fail
   await page.evaluate(() => { 
     const { msw } = window 
    
@@ -48,4 +48,7 @@ test('App should show error message when vote fails', async ({ page }) => {
   await page.locator('label').first().click();
   await page.click('button[type="submit"]');
 
+  await expect(page.getByText('Failed to submit vote')).toBeVisible();
+  //TODO: [ML] Make assertion
+  //TODO: [ML] Update documentation
 });
