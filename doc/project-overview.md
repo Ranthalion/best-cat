@@ -9,6 +9,6 @@ Choose the best cat!
 1. Whirlwind tour of incomplete source code
 1. Add mock service worker to running app
 1. Use mock service worker in e2e tests
-1. Summary or Recap with resources?
+1. Summary
 
 [Next Page: Implementation Steps](implementation-steps.md)

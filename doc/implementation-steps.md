@@ -87,8 +87,4 @@ Run the app and view the console output.  [MSW] Mocking enabled should be logged
 ### Verify new functionality
 The app should should accept votes and load new cats.
 
-### Read the request
-
-
-
 [Next Page: End to End Tests](e2e-test-steps.md)
