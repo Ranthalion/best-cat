@@ -4,7 +4,7 @@ export const handlers = [
 
   rest.get('/vote-count', (req, res, ctx) => {
     
-    let voteCount: number = parseInt(sessionStorage.getItem('voteCount') ?? '0');
+    let voteCount: number = parseInt( sessionStorage.getItem('voteCount') ?? '0');
     
     return res(
       ctx.status(200),
