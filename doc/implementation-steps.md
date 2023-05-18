@@ -1,13 +1,12 @@
 # Add Mock Service Worker
 
+1. Install MSW
+1. Configure the app to use MSW in DEV
+1. Implement mock api routes (hanlders)
+
 ### Install msw  
 ```bash
 npm install msw --save-dev
-```
-
-### Install types for events (if needed)
-```bash
-npm install @types/events --save-dev 
 ```
 
 ### Initialize msw 
