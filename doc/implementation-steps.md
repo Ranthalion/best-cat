@@ -32,20 +32,20 @@ touch src/mocks/handlers.ts
 
 ### Create an empty handlers array in src/mocks/handlers.ts
 ```ts
-import { rest } from 'msw'
+import { rest } from 'msw';
 
 export const handlers = [
-
-]
+  //TODO: [ML] Populate handlers later
+];
 ```
 
 ### Fill in browser.ts
 ```ts
-import { setupWorker } from 'msw'
-import { handlers } from './handlers'
+import { setupWorker } from 'msw';
+import { handlers } from 'src/mocks/handlers';
 
 // This configures a Service Worker with the given request handlers.
-export const worker = setupWorker(...handlers)
+export const worker = setupWorker(...handlers);
 ```
 
 ### Start the worker in development build
