@@ -11,4 +11,4 @@ Choose the best cat!
 1. Use mock service worker in e2e tests
 1. Summary
 
-[Next Page: Implementation Steps](implementation-steps.md)
+[Next Page: Code Tour](code-tour.md)
