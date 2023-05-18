@@ -2,13 +2,14 @@
 
 ## What's this about
 
-Mock Service Worker (msw) mocks Rest and GraphQL requests on a network level.  It runs
+Mock Service Worker (msw) mocks Rest and GraphQL requests by intercepting traffic on a network level.  It can run in the browser as well as in the node runtime.
 
-## Why should anyone care
+## Why should I care
 
-- No need for a working backend API.
+- Simulate backend APIs for faster iteration and testing
+- Allows offline development and testing
 - Share fixtures between local development, unit test, e2e tests and anything else in the application.
-- Can run in the browser and in 
+- Total control over the API responses can replicate edge cases and bugs
 
 [Next Page: Project Overview](project-overview.md)
 
