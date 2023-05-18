@@ -2,7 +2,7 @@
 
 1. Install MSW
 1. Configure the app to use MSW in DEV
-1. Implement mock api routes (hanlders)
+1. Implement mock api routes (handlers)
 
 ### Install msw  
 ```bash
