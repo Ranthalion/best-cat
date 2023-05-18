@@ -13,5 +13,7 @@
   - The form is straightforward, with a couple of radio buttons, a validation message, a submit button, the vote count, and a spot to show an error message.
 - The api service just makes a few api calls.  One to an external api, and a couple to a local api.
 - We have 2 environment files, development and production.  We define the api endpoints here.
+- A few unit tests that run and pass
+- A couple of e2e tests with a failure
 
 [Next Page: Add Mock Service Worker](implementation-steps.md)
