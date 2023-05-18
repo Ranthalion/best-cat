@@ -15,10 +15,10 @@ export class ApiService {
     }
 
     getVoteCount(): Observable<any> {
-      return this.http.get<any>(`${environment.API_BASE}/user/vote-count`);
+      return this.http.get<any>(`${environment.API_BASE}/vote-count`);
     }
 
     submitVote(vote: any): Observable<any> {
-      return this.http.post<any>(`${environment.API_BASE}/user/vote`, vote);
+      return this.http.post<any>(`${environment.API_BASE}/vote`, vote);
     }
 }
