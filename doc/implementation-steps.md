@@ -88,23 +88,25 @@ The app should should accept votes and load new cats.
 
 ### Let's fix the vote count
 
-LocalStorage is available in the browser, so we can use that to persist values across requests.
+LocalStorage and Session storage are available in the browser, so we can use that to persist values across requests.
 
 Update /vote route to increment the vote count and pull the bestCat Id
 
 ```ts
-let voteCount: number = parseInt(sessionStorage.getItem('voteCount') ?? '0');
-voteCount++;
-sessionStorage.setItem('voteCount', voteCount.toString());
-const payload = await req.json()
-return res(
-  ctx.status(200),
-  ctx.json({
-    id: payload.bestCat,
-    agree: 20,
-    disagree: 8
-  })
-)
+rest.post('/vote', async (req, res, ctx) => {
+  let voteCount: number = parseInt(sessionStorage.getItem('voteCount') ?? '0');
+  voteCount++;
+  sessionStorage.setItem('voteCount', voteCount.toString());
+  const payload = await req.json()
+  return res(
+    ctx.status(200),
+    ctx.json({
+      id: payload.bestCat,
+      agree: 20,
+      disagree: 8
+    })
+  )
+}),
 ```
 
 Update /vote-count route to use the persisted count
