@@ -5,7 +5,6 @@ Mock Service Worker can be used to mock backend APIs during end to end testing. 
 ### Add an e2e test for vote failure
 
 ```ts
-//best-cat.spec.ts
 test('App should show error message when vote fails', async ({ page }) => {
 
   await page.goto('/');
@@ -47,10 +46,10 @@ window.msw = {
 ### Update the test 
 ```ts
 await page.evaluate(() => { 
-    const { msw } = window 
+    const { worker, rest } = window.msw; 
 
-    msw.worker.use( 
-      msw.rest.post('/vote', async (req, res, ctx) => { 
+    worker.use( 
+      rest.post('/vote', async (req, res, ctx) => { 
         return res(ctx.status(500)); 
       })
     );  
