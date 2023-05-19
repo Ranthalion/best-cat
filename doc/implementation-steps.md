@@ -66,7 +66,7 @@ Run the app and view the console output.  [MSW] Mocking enabled should be logged
     return res(
       ctx.status(200),
       ctx.json({
-        voteCount: 1
+        voteCount: 0
       })
     )
   }),
@@ -85,5 +85,39 @@ Run the app and view the console output.  [MSW] Mocking enabled should be logged
 
 ### Verify new functionality
 The app should should accept votes and load new cats.
+
+### Let's fix the vote count
+
+LocalStorage is available in the browser, so we can use that to persist values across requests.
+
+Update /vote route to increment the vote count and pull the bestCat Id
+
+```ts
+let voteCount: number = parseInt(sessionStorage.getItem('voteCount') ?? '0');
+voteCount++;
+sessionStorage.setItem('voteCount', voteCount.toString());
+const payload = await req.json()
+return res(
+  ctx.status(200),
+  ctx.json({
+    id: payload.bestCat,
+    agree: 20,
+    disagree: 8
+  })
+)
+```
+
+Update /vote-count route to use the persisted count
+
+```ts
+let voteCount: number = parseInt( sessionStorage.getItem('voteCount') ?? '0');
+
+return res(
+  ctx.status(200),
+  ctx.json({
+    voteCount
+  })
+)
+```
 
 [Next Page: End to End Tests](e2e-test-steps.md)

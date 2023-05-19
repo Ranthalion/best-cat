@@ -57,38 +57,4 @@ await page.evaluate(() => {
   });
 ```
 
-### Extras
-
-LocalStorage is available in the browser, so we can use that to persist values across requests.
-
-Update /vote route to increment the vote count and pull the bestCat Id
-```ts
-let voteCount: number = parseInt(sessionStorage.getItem('voteCount') ?? '0');
-voteCount++;
-sessionStorage.setItem('voteCount', voteCount.toString());
-const payload = await req.json()
-return res(
-  ctx.status(200),
-  ctx.json({
-    id: payload.bestCat,
-    agree: 20,
-    disagree: 8
-  })
-)
-```
-
-Update /vote-count route to use the persisted count
-```ts
-let voteCount: number = parseInt( sessionStorage.getItem('voteCount') ?? '0');
-    
-    return res(
-      ctx.status(200),
-      ctx.json({
-        voteCount
-      })
-    )
-```
-
-
-
 [Next Page: Summary](summary-recap.md)
