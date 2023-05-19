@@ -296,7 +296,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var msw__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(msw__WEBPACK_IMPORTED_MODULE_1__);
 
 
-src_mocks_browser__WEBPACK_IMPORTED_MODULE_0__.worker.start();
+src_mocks_browser__WEBPACK_IMPORTED_MODULE_0__.worker.start({serviceWorker: {url: '/bestcat/mockServiceWorker.js'}});
 window.msw = {
   worker: src_mocks_browser__WEBPACK_IMPORTED_MODULE_0__.worker,
   rest: msw__WEBPACK_IMPORTED_MODULE_1__.rest
